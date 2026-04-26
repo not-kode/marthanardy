@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dra. Martha Nardy - Landing Page (Next.js)
 
-## Getting Started
+Este é o novo site da Dra. Martha Nardy, migrado do HTML original para **Next.js**, **Tailwind CSS** e **Framer Motion** para animações modernas.
 
-First, run the development server:
+## 🚀 Tecnologias Utilizadas
 
+- **Framework:** Next.js 16
+- **Estilização:** Tailwind CSS (via PostCSS)
+- **Animações:** Framer Motion
+- **Ícones:** Lucide React
+
+## 💻 Como Rodar o Projeto Localmente
+
+1. Navegue até a pasta do site:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd next-site
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instale as dependências:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Inicie o servidor de desenvolvimento:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
-## Learn More
+## 🌐 Como Subir na Vercel
 
-To learn more about Next.js, take a look at the following resources:
+O Next.js é desenvolvido pela mesma equipe da Vercel, o que torna o processo de deploy extremamente simples e direto. Você tem duas opções:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Opção 1: Usando o Vercel CLI (Direto do Terminal)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Se quiser publicar rapidamente direto dessa pasta, execute:
 
-## Deploy on Vercel
+```bash
+npx vercel
+```
+Siga as instruções na tela para logar e criar o projeto. Depois, para o ambiente de produção, use:
+```bash
+npx vercel --prod
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Opção 2: Integrando com o GitHub (Recomendado)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Esta é a melhor opção, pois o site será atualizado automaticamente sempre que houver novas alterações.
+
+1. Adicione os arquivos ao Git e suba para o GitHub:
+```bash
+git add .
+git commit -m "feat: site next.js initial commit"
+git push
+```
+2. Acesse sua conta na [Vercel](https://vercel.com/dashboard).
+3. Clique em **Add New...** e depois em **Project**.
+4. Selecione o seu repositório no GitHub.
+5. Clique em **Deploy** (a Vercel reconhecerá o Next.js automaticamente).
+
+Em menos de 1 minuto, o seu site com as novas animações estará no ar!
