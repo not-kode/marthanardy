@@ -12,6 +12,23 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 export default function Home() {
   const whatsappLink = "https://wa.me/5511977196686?text=Oi!%20Vi%20o%20anuncio%20e%20quero%20marcar%20uma%20consulta.";
 
+  const trackWhatsAppClick = () => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const trackedWindow = window as Window & {
+      dataLayer?: Array<Record<string, unknown>>;
+    };
+
+    trackedWindow.dataLayer = trackedWindow.dataLayer || [];
+    trackedWindow.dataLayer.push({
+      event: "whatsapp_click",
+      destination: "whatsapp",
+      contact_method: "whatsapp",
+    });
+  };
+
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -32,11 +49,7 @@ export default function Home() {
       className={`inline-flex items-center justify-center gap-3 bg-[#2AD1A9] text-white rounded-xl font-bold transition-all shadow-[0_0_20px_rgba(42,209,169,0.25)] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(42,209,169,0.45)] hover:bg-[#4DE0BE] ${
         isHeader ? "px-6 py-2.5 text-sm" : "px-8 py-4 text-lg"
       }`}
-      onClick={(e) => {
-        if (typeof window !== "undefined" && (window as any).gtag) {
-          (window as any).gtag('event', 'conversion', {'send_to': 'AW-4082171794/whatsapp_click'});
-        }
-      }}
+      onClick={trackWhatsAppClick}
     >
       <motion.div
         animate={{ scale: [1, 1.15, 1] }}
@@ -277,11 +290,7 @@ export default function Home() {
         href={whatsappLink}
         className="fixed bottom-6 right-6 bg-[#2AD1A9] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(42,209,169,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(42,209,169,0.5)] z-50"
         title="Fale conosco pelo WhatsApp"
-        onClick={(e) => {
-          if (typeof window !== "undefined" && (window as any).gtag) {
-            (window as any).gtag('event', 'conversion', {'send_to': 'AW-4082171794/whatsapp_click'});
-          }
-        }}
+        onClick={trackWhatsAppClick}
       >
         <motion.div
           animate={{ scale: [1, 1.15, 1] }}
