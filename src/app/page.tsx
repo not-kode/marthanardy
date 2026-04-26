@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MapPin, Clock, Phone } from "lucide-react";
+import type { MouseEvent } from "react";
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -12,21 +13,37 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 export default function Home() {
   const whatsappLink = "https://wa.me/5511977196686?text=Oi!%20Vi%20o%20anuncio%20e%20quero%20marcar%20uma%20consulta.";
 
-  const trackWhatsAppClick = () => {
+  const trackWhatsAppClick = (event: MouseEvent<HTMLAnchorElement>) => {
     if (typeof window === "undefined") {
       return;
     }
+
+    event.preventDefault();
 
     const trackedWindow = window as Window & {
       dataLayer?: Array<Record<string, unknown>>;
     };
 
     trackedWindow.dataLayer = trackedWindow.dataLayer || [];
+    let hasNavigated = false;
+    const navigateToWhatsApp = () => {
+      if (hasNavigated) {
+        return;
+      }
+
+      hasNavigated = true;
+      window.location.href = whatsappLink;
+    };
+
     trackedWindow.dataLayer.push({
       event: "whatsapp_click",
       destination: "whatsapp",
       contact_method: "whatsapp",
+      eventCallback: navigateToWhatsApp,
+      eventTimeout: 2000,
     });
+
+    window.setTimeout(navigateToWhatsApp, 300);
   };
 
   const fadeIn = {
