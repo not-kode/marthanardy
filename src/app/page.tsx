@@ -387,22 +387,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Como Funciona Section - Sua Jornada de Tratamento (Horizontal Scroll) */}
+      {/* Como Funciona Section - Sua Jornada de Tratamento */}
       <section className="py-[100px] md:py-[140px] bg-white border-t border-slate-100 overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-light text-slate-800 tracking-tight mb-16">Sua Jornada de Tratamento</h2>
           
-          <div className="relative">
+          {/* Desktop: Scroll Horizontal com Setas */}
+          <div className="hidden md:block relative">
             {/* Setas de Navegação */}
             <button 
               onClick={() => scroll("left")} 
-              className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center text-slate-600 hover:text-[#4A9FD4] hover:shadow-xl transition-all"
+              className="flex absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center text-slate-600 hover:text-[#4A9FD4] hover:shadow-xl transition-all"
             >
               <ChevronLeft size={24} />
             </button>
             <button 
               onClick={() => scroll("right")} 
-              className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center text-slate-600 hover:text-[#4A9FD4] hover:shadow-xl transition-all"
+              className="flex absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center text-slate-600 hover:text-[#4A9FD4] hover:shadow-xl transition-all"
             >
               <ChevronRight size={24} />
             </button>
@@ -410,7 +411,7 @@ export default function Home() {
             {/* Faixa de Rolagem Horizontal */}
             <div 
               ref={scrollRef} 
-              className="flex overflow-x-auto snap-x snap-mandatory gap-6 md:gap-8 pb-12 scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              className="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-12 scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
               {journeySteps.map((step, index) => (
                 <motion.div 
@@ -419,26 +420,26 @@ export default function Home() {
                   initial="hidden" 
                   whileInView="visible" 
                   viewport={{ once: true }}
-                  className="snap-center shrink-0 w-[80vw] sm:w-[45vw] md:w-[calc(25%-24px)] flex flex-col items-center text-center relative"
+                  className="snap-center shrink-0 w-[calc(25%-24px)] flex flex-col items-center text-center relative"
                 >
                   {/* Imagem Circular */}
-                  <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden mb-8 shadow-lg border-4 border-white z-10 bg-slate-100">
+                  <div className="w-48 h-48 rounded-full overflow-hidden mb-8 shadow-lg border-4 border-white z-10 bg-slate-100">
                     <img src={step.img} alt={step.title} className="w-full h-full object-cover" />
                   </div>
                   
                   {/* Linha de Conexão (entre os itens, exceto o último) */}
                   {index < journeySteps.length - 1 && (
-                    <div className="hidden md:block absolute top-24 left-[60%] w-[80%] h-0.5 border-t-2 border-dashed border-slate-200 -z-0"></div>
+                    <div className="absolute top-24 left-[60%] w-[80%] h-0.5 border-t-2 border-dashed border-slate-200 -z-0"></div>
                   )}
                   
                   {/* Número */}
-                  <div className="text-5xl md:text-6xl font-light text-[#4A9FD4] mb-2">{step.num}</div>
+                  <div className="text-6xl font-light text-[#4A9FD4] mb-2">{step.num}</div>
                   
                   {/* Título */}
-                  <h3 className="text-xl md:text-2xl font-light text-slate-800 mb-4">{step.title}</h3>
+                  <h3 className="text-2xl font-light text-slate-800 mb-4">{step.title}</h3>
                   
                   {/* Descrição */}
-                  <p className="text-sm text-slate-500 leading-relaxed px-2 md:px-0">
+                  <p className="text-sm text-slate-500 leading-relaxed">
                     {step.desc}
                   </p>
                 </motion.div>
@@ -446,10 +447,33 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Indicadores de Scroll (Mobile) */}
-          <div className="flex justify-center gap-2 mt-4 md:hidden">
-            {journeySteps.map((step, idx) => (
-              <div key={step.num} className={`h-1.5 rounded-full transition-all ${idx === 0 ? 'w-6 bg-[#4A9FD4]' : 'w-1.5 bg-slate-300'}`}></div>
+          {/* Mobile: Grade Vertical com todos os cards visíveis */}
+          <div className="md:hidden grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {journeySteps.map((step, index) => (
+              <motion.div 
+                key={step.num} 
+                variants={fadeIn} 
+                initial="hidden" 
+                whileInView="visible" 
+                viewport={{ once: true }}
+                className="flex flex-col items-center text-center bg-slate-50 rounded-3xl p-8"
+              >
+                {/* Imagem Circular */}
+                <div className="w-32 h-32 rounded-full overflow-hidden mb-6 shadow-md border-4 border-white bg-slate-100">
+                  <img src={step.img} alt={step.title} className="w-full h-full object-cover" />
+                </div>
+                
+                {/* Número */}
+                <div className="text-4xl font-light text-[#4A9FD4] mb-1">{step.num}</div>
+                
+                {/* Título */}
+                <h3 className="text-xl font-light text-slate-800 mb-3">{step.title}</h3>
+                
+                {/* Descrição */}
+                <p className="text-sm text-slate-500 leading-relaxed">
+                  {step.desc}
+                </p>
+              </motion.div>
             ))}
           </div>
         </div>
