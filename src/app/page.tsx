@@ -275,7 +275,8 @@ export default function Home() {
       <section id="servicos" className="py-[100px] md:py-[140px] bg-[#f8f9fa] scroll-mt-20">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-light text-slate-800 tracking-tight">Nossos Tratamentos</h2>
+            <h2 className="text-4xl md:text-5xl font-light text-slate-800 tracking-tight">Quais serviços eu realizo?</h2>
+            <p className="mt-4 text-base md:text-lg text-slate-600">Atendimento personalizado em:</p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8 md:gap-12 relative">
@@ -283,18 +284,18 @@ export default function Home() {
             {/* Coluna 1 */}
             <div className="flex flex-col gap-8 md:gap-12">
               <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-white rounded-3xl p-8 shadow-sm flex flex-col items-center text-center h-full">
-                <h3 className="text-2xl font-light text-slate-800 mb-2">Clínica Geral & Prevenção</h3>
-                <p className="text-sm text-slate-500 mb-6 leading-relaxed flex-1">Check-ups regulares, limpeza profissional e orientações para manter seus dentes e gengivas saudáveis. A prevenção é a chave.</p>
+                <h3 className="text-2xl font-light text-slate-800 mb-2">Especialista em Endodontia</h3>
+                <p className="text-sm text-slate-500 mb-6 leading-relaxed flex-1">Tratamento de canal com técnicas modernas e minimamente invasivas.</p>
                 <div className="w-full flex justify-center opacity-80 mix-blend-multiply mt-auto">
-                  <img src="/icons/dental-care.svg" alt="Prevenção" className="h-24 object-contain" />
+                  <img src="/icons/tooth.svg" alt="Endodontia" className="h-24 object-contain" />
                 </div>
               </motion.div>
 
               <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-white rounded-3xl p-8 shadow-sm flex flex-col items-center text-center h-full">
-                <h3 className="text-2xl font-light text-slate-800 mb-2">Estética Dental</h3>
-                <p className="text-sm text-slate-500 mb-6 leading-relaxed flex-1">Soluções estéticas desenvolvidas para realçar sua beleza natural e lhe dar um sorriso confiante e radiante.</p>
+                <h3 className="text-2xl font-light text-slate-800 mb-2">Atuação em Prótese Dentária</h3>
+                <p className="text-sm text-slate-500 mb-6 leading-relaxed flex-1">Total, parcial fixa ou removível. Soluções personalizadas para quem precisa de reabilitação oral.</p>
                 <div className="w-full flex justify-center opacity-80 mix-blend-multiply mt-auto">
-                  <img src="/icons/dentist.svg" alt="Estética" className="h-24 object-contain" />
+                  <img src="/icons/dentist.svg" alt="Prótese Dentária" className="h-24 object-contain" />
                 </div>
               </motion.div>
             </div>
@@ -302,16 +303,16 @@ export default function Home() {
             {/* Coluna 2 */}
             <div className="flex flex-col gap-8 md:gap-12">
               <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-white rounded-3xl p-8 shadow-sm flex flex-col items-center text-center h-full">
-                <h3 className="text-2xl font-light text-slate-800 mb-2">Endodontia (Canal)</h3>
-                <p className="text-sm text-slate-500 mb-6 leading-relaxed flex-1">Especialidade da Dra. Martha. Tratamentos de canal precisos para aliviar a dor e salvar seu dente natural, com conforto.</p>
+                <h3 className="text-2xl font-light text-slate-800 mb-2">Atuação em Periodontia</h3>
+                <p className="text-sm text-slate-500 mb-6 leading-relaxed flex-1">Cuidado com gengivas e prevenção de doenças periodontais.</p>
                 <div className="w-full flex justify-center opacity-80 mix-blend-multiply mt-auto">
-                  <img src="/icons/tooth.svg" alt="Endodontia" className="h-24 object-contain" />
+                  <img src="/icons/dentist-tools.svg" alt="Periodontia" className="h-24 object-contain" />
                 </div>
               </motion.div>
 
               <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-white rounded-3xl p-8 shadow-sm flex flex-col items-center text-center h-full">
-                <h3 className="text-2xl font-light text-slate-800 mb-2">Clareamento Dentário</h3>
-                <p className="text-sm text-slate-500 mb-6 leading-relaxed flex-1">Técnicas seguras para dentes mais claros e brilhantes sem comprometer a estrutura dentária, garantindo um sorriso perfeito.</p>
+                <h3 className="text-2xl font-light text-slate-800 mb-2">Atuação em Dentística</h3>
+                <p className="text-sm text-slate-500 mb-6 leading-relaxed flex-1">Foco na preservação dos dentes naturais, realizando intervenções apenas quando necessário.</p>
                 <div className="w-full flex justify-center opacity-80 mix-blend-multiply mt-auto">
                   <Sparkles size={80} className="text-slate-700" strokeWidth={1} />
                 </div>
@@ -321,18 +322,18 @@ export default function Home() {
             {/* Coluna 3 */}
             <div className="flex flex-col gap-8 md:gap-12">
               <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-white rounded-3xl p-8 shadow-sm flex flex-col items-center text-center h-full">
-                <h3 className="text-2xl font-light text-slate-800 mb-2">Periodontia & Saúde</h3>
-                <p className="text-sm text-slate-500 mb-6 leading-relaxed flex-1">Tratamento avançado das gengivas e estruturas de suporte dos dentes, garantindo uma base sólida para a sua saúde bucal.</p>
+                <h3 className="text-2xl font-light text-slate-800 mb-2">Atuação em Saúde Bucal</h3>
+                <p className="text-sm text-slate-500 mb-6 leading-relaxed flex-1">Diagnóstico e prevenção para um sorriso saudável.</p>
                 <div className="w-full flex justify-center opacity-80 mix-blend-multiply mt-auto">
-                  <img src="/icons/dentist-tools.svg" alt="Periodontia" className="h-24 object-contain" />
+                  <img src="/icons/dental-care.svg" alt="Saúde Bucal" className="h-24 object-contain" />
                 </div>
               </motion.div>
 
               <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-white rounded-3xl p-8 shadow-sm flex flex-col items-center text-center h-full">
-                <h3 className="text-2xl font-light text-slate-800 mb-2">Próteses & Implantes</h3>
-                <p className="text-sm text-slate-500 mb-6 leading-relaxed flex-1">Utilizando materiais modernos, restauramos dentes ausentes ou danificados com resultados naturais que melhoram a função.</p>
+                <h3 className="text-2xl font-light text-slate-800 mb-2">Clareamento Dentário</h3>
+                <p className="text-sm text-slate-500 mb-6 leading-relaxed flex-1">Técnicas seguras para dentes mais claros sem comprometer a estrutura dentária.</p>
                 <div className="w-full flex justify-center opacity-80 mix-blend-multiply mt-auto">
-                  <img src="/icons/implant.svg" alt="Implantes" className="h-24 object-contain" />
+                  <img src="/icons/implant.svg" alt="Clareamento Dentário" className="h-24 object-contain" />
                 </div>
               </motion.div>
             </div>
